@@ -36,4 +36,14 @@ else {
     console.error('ERROR: File settings.sqlite3 does not exist.');
 }
 
-Cinnamon.login(process.env.BOT_TOKEN);
+//Checks if there's a bot token from Heroku
+if(process.env.BOT_TOKEN) {
+	Cinnamon.login(process.env.BOT_TOKEN);
+}
+//If no bot token, attempts to load from secure.json
+else if(fs.existsSync('secure.json')){
+	Cinnamon.login(secure.discordAPIKey);
+}
+else {
+	console.error('ERROR: No Heroku environment variables or secure.json found!');
+}
