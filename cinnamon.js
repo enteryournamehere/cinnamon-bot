@@ -31,9 +31,14 @@ if(fs.existsSync('settings.sqlite3')) {
     Cinnamon.setProvider(
         sqlite.open(path.join(__dirname, 'settings.sqlite3')).then((settingsProvider) => new Commando.SQLiteProvider(settingsProvider))
     ).catch(console.error);
-
-    Cinnamon.login(secure.discordAPIKey);
 }
 else {
     console.error('ERROR: File settings.sqlite3 does not exist.');
+}
+
+if(fs.existsSync('secure.json')) {
+	Cinnamon.login(secure.discordAPIKey);
+}
+else {
+	console.error('ERROR: File secure.json does not exist.')
 }
