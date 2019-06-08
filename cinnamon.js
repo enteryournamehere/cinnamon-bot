@@ -36,9 +36,4 @@ else {
     console.error('ERROR: File settings.sqlite3 does not exist.');
 }
 
-if(fs.existsSync('secure.json')) {
-	Cinnamon.login(secure.discordAPIKey);
-}
-else {
-	console.error('ERROR: File secure.json does not exist.')
-}
+Cinnamon.login(process.env.BOT_TOKEN);
