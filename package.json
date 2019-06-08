@@ -1,0 +1,26 @@
+{
+  "name": "cinnamon",
+  "version": "0.0.1",
+  "description": "A Discord commando bot!",
+  "main": "cinnamon.js",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "discord.js-commando": "^0.10.0",
+    "sqlite": "^3.0.3",
+    "sqlite3": "^4.0.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "ping"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IncognitoCactus/vowels.git"
+  },
+  "author": "IncognitoCactus, dmbutalsodm",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IncognitoCactus/vowels/issues"
+  },
+  "homepage": "https://github.com/IncognitoCactus/vowels#readme"
+}
