@@ -11,7 +11,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "ping"
+      "start": "node cinnamon.js"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,5 @@
   "bugs": {
     "url": "https://github.com/IncognitoCactus/vowels/issues"
   },
-  "homepage": "https://github.com/IncognitoCactus/vowels#readme"
+  "homepage": "https://github.com/IncognitoCactus/vowels#readme",
 }
