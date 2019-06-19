@@ -37,9 +37,9 @@ module.exports = class ShipCommand extends Command {
 
 	async run(msg, { user1, user2 }) {
 
-		const ids = [user1.id, user2.id].sort().join(String(Date.now()).substring(0, 5));
-		let shipNum = parseInt(require('crypto').createHash('sha256').update(ids).digest('base64').substring(0, 4), 32) % 101;
-		
+		//const ids = [user1.id, user2.id].sort().join(String(Date.now()).substring(0, 5));
+		//let shipNum = parseInt(require('crypto').createHash('sha256').update(ids).digest('base64').substring(0, 4), 32) % 101;
+		let shipNum = Math.floor(Math.random() * 100) + 1;
 		//Determine what to say
 		let reaction = "Yikes.";
 		if(shipNum >= 40) reaction = "You can make it work!";

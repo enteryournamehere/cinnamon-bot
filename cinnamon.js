@@ -17,7 +17,8 @@ Cinnamon.registry
 	.registerGroups([
 		['search', 'Search commands'],
 		['fun', 'Fun commands'],
-		['utility', 'Utility commands']
+		['utility', 'Utility commands'],
+		['roleplay', 'Roleplay commands']
 	])
 	.registerDefaultTypes()
 	.registerDefaultGroups()
