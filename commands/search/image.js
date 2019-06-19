@@ -1,6 +1,5 @@
 const {Command} = require('discord.js-commando');
 const request = require('request-promise');
-const secure = require('../../secure.json');
 
 module.exports = class ImageCommand extends Command {
 	constructor(client) {
@@ -47,7 +46,7 @@ module.exports = class ImageCommand extends Command {
 		};
 
 		request({
-			uri: `https://www.googleapis.com/customsearch/v1?searchType=image&cx=017119602772521781611:_sy6ezmcc90&key=${secure.imageSearchAPIKey}&safe=medium&q=${query}`,
+			uri: `https://www.googleapis.com/customsearch/v1?searchType=image&cx=017119602772521781611:_sy6ezmcc90&key=${process.env.imageSearchAPIKey}&safe=medium&q=${query}`,
 			json: true,
 			headers: {
 				'User-Agent': 'Cinnamon Bot',
