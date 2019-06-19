@@ -32,6 +32,24 @@ Cinnamon.on('ready', () => {
 	else Cinnamon.user.setActivity(Cinnamon.commandPrefix + 'help | ' + versionNum);
 });
 
+//Send hello upon joining server
+Cinnamon.on("guildCreate", guild => {
+	let channelID;
+	const channels = guild.channels;
+	//Search for first available text channel
+	channelLoop:
+	for (const c of channels) {
+		const channelType = c[1].type;
+		if (channelType === "text") {
+			channelID = c[0];
+			break channelLoop;
+		}
+	}
+	//Send a hello message
+	const channel = Cinnamon.channels.get(guild.systemChannelID || channelID);
+	channel.send("Hi! My name is Cinnamon and we're gonna be good friends!\nCheck out my commands with "+Cinnamon.commandPrefix+"help or feel free to dm me :)");
+});
+
 // Checks if there's a bot token from Heroku
 if (process.env.BOT_TOKEN) Cinnamon.login(process.env.BOT_TOKEN);
 // Otherwise, assumes local testing configuration and loads token from secure
