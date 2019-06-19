@@ -13,7 +13,8 @@ console = new (require('./utils/advancedConsole'))(0, console.log);
 
 Cinnamon.registry
 	.registerGroups([
-		['search', 'Core commands'],
+		['search', 'Search commands'],
+		['fun', 'Fun commands']
 	])
 	.registerDefaultTypes()
 	.registerDefaultGroups()
@@ -22,8 +23,13 @@ Cinnamon.registry
 
 Cinnamon.on('ready', () => {
 	console.log('Bot successfully started.');
-	Cinnamon.user.setActivity('Testing!');
+	Cinnamon.user.setActivity('(' + Cinnamon.commandPrefix + ') Testing! ');
 });
 
 // Checks if there's a bot token from Heroku
 if (process.env.BOT_TOKEN) Cinnamon.login(process.env.BOT_TOKEN);
+// Otherwise, assumes local testing configuration and loads token from secure
+else {
+	const secure = require('./secure.json');
+	Cinnamon.login(secure.discordAPIKey);
+}
