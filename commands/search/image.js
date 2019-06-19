@@ -13,6 +13,10 @@ module.exports = class ImageCommand extends Command {
 			examples: ['img kodak black', 'img weeb stuff'],
 			format: '[query]',
 			guildOnly: true,
+			throttling: {
+				usages: 2,
+				duration: 10
+			},
 			args: [
 				{
 					key: 'query',

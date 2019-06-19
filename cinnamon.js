@@ -1,5 +1,7 @@
 const Commando = require('discord.js-commando');
 const path = require('path');
+//Version number for playing status
+var versionNum = 'v0.0.1';
 
 const Cinnamon = new Commando.Client({
 	owner: ['87723984799399936', '147604925612818432'],
@@ -23,7 +25,10 @@ Cinnamon.registry
 
 Cinnamon.on('ready', () => {
 	console.log('Bot successfully started.');
-	Cinnamon.user.setActivity('(' + Cinnamon.commandPrefix + ') Testing! ');
+	//Set custom status for local testing
+	if(!process.env.BOT_TOKEN) Cinnamon.user.setActivity('Testing!');
+	//Main status
+	else Cinnamon.user.setActivity(Cinnamon.commandPrefix + 'help | ' + versionNum);
 });
 
 // Checks if there's a bot token from Heroku

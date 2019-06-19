@@ -28,7 +28,11 @@ module.exports = class DogCommand extends Command {
 			details: 'Gives you a 100% legitimate dog fact.',
 			aliases: ['df'],
 			examples: ['dogfact', 'df'],
-			guildOnly: true,
+            guildOnly: true,
+            throttling: {
+				usages: 2,
+				duration: 10
+			},
 		});
     }
     
