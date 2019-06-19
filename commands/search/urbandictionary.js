@@ -16,9 +16,9 @@ module.exports = class ImageCommand extends Command {
 			aliases: ['ud'],
 			examples: ['ud yeet'],
 			format: '[query]',
-			guildOnly: true,
+			guildOnly: false,
 			throttling: {
-				usages: 2,
+				usages: 1,
 				duration: 10
 			},
 			args: [

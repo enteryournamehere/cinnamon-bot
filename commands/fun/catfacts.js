@@ -29,7 +29,7 @@ module.exports = class CatCommand extends Command {
 			details: 'Gives you a 100% legitimate cat fact.',
 			aliases: ['cf'],
 			examples: ['catfact', 'cf'],
-            guildOnly: true,
+            guildOnly: false,
             throttling: {
 				usages: 2,
 				duration: 10

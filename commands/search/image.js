@@ -12,7 +12,7 @@ module.exports = class ImageCommand extends Command {
 			aliases: ['img'],
 			examples: ['img kodak black', 'img weeb stuff'],
 			format: '[query]',
-			guildOnly: true,
+			guildOnly: false,
 			throttling: {
 				usages: 2,
 				duration: 10
