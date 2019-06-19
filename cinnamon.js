@@ -16,7 +16,8 @@ console = new (require('./utils/advancedConsole'))(0, console.log);
 Cinnamon.registry
 	.registerGroups([
 		['search', 'Search commands'],
-		['fun', 'Fun commands']
+		['fun', 'Fun commands'],
+		['utility', 'Utility commands']
 	])
 	.registerDefaultTypes()
 	.registerDefaultGroups()
