@@ -40,7 +40,20 @@ module.exports = class ImageCommand extends Command {
 	async run(msg, { user1, user2 }) {
 
         //Note: Need to save matches between users eventually.
-        var shipNum = Math.floor(Math.random() * 100) + 1 + '%';
+        var shipNum = Math.floor(Math.random() * 100) + 1;
+
+        var reaction;
+        //Determine what to say
+        if(shipNum >= 85) { reaction = "You two are such a power couple!"; }
+        else if(shipNum < 85 && shipNum >= 65) { reaction = "So cute together!"; }
+        else if(shipNum < 65 && shipNum >= 40) { reaction = "You can make it work!"; }
+        else if(shipNum < 40) { reaction = "Yikes."; }
+
+        //If you ship with yourself
+        if(user1 == user2) {
+            shipNum = 150;
+            reaction = "You should always love yourself :)";
+        }
 
         // Set a new canvas to the dimensions of 700x300 pixels
         const canvas = Canvas.createCanvas(700, 300);
@@ -60,10 +73,12 @@ module.exports = class ImageCommand extends Command {
 
         //Draw percentage
         ctx.font = 'bold 60px sans-serif';
+        ctx.textAlign = "center"; 
         ctx.fillStyle = '#ffffff';
-        ctx.fillText(shipNum, 290, 150);
+        ctx.fillText(shipNum + '%', canvas.width / 2, 150);
+    
 
         //Display
-        return msg.say({ files: [{ attachment: canvas.toBuffer(), name: 'ship.png' }] });
+        return msg.say(reaction, { files: [{ attachment: canvas.toBuffer(), name: 'ship.png' }] });
     }
 };
