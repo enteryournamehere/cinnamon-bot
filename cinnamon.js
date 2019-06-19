@@ -5,7 +5,7 @@ var versionNum = 'v0.0.1';
 
 const Cinnamon = new Commando.Client({
 	owner: ['87723984799399936', '147604925612818432'],
-	commandPrefix: '-',
+	commandPrefix: 'c!',
 	unknownCommandResponse: false,
 	disableEveryone: true,
 });

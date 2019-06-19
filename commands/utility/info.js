@@ -34,6 +34,7 @@ module.exports = class InfoCommand extends Command {
 			.addField('Shards', formatNumber(this.client.options.shardCount), true)
 			.addField('Commands', formatNumber(this.client.registry.commands.size), true)
 			.addField('Source Code',`[Here](https://github.com/IncognitoCactus/cinnamon-bot/)`, true)
+			.addField('Invite',`[Invite me to your server!](https://discordapp.com/oauth2/authorize?client_id=586652575307137024&scope=bot&permissions=8)`, true)
 			.addField('Memory Usage', `${Math.round(process.memoryUsage().heapUsed / 1024 / 1024)}MB`, true)
 			.addField('Uptime', moment.duration(this.client.uptime).format('hh:mm:ss', { trim: false }), true)
 			.addField('Version', `v0.0.1`, true)
