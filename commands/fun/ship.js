@@ -1,12 +1,8 @@
 const {Command} = require('discord.js-commando');
-const request = require('request-promise');
 const Canvas = require('canvas');
 const path = require('path');
 
-const filterLevels = ['Off', 'No Role', 'Everyone'];
-const verificationLevels = ['None', 'Low', 'Medium', '(╯°□°）╯︵ ┻━┻', '┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻'];
-
-module.exports = class ImageCommand extends Command {
+module.exports = class ShipCommand extends Command {
 	constructor(client) {
 		super(client, {
 			name: 'ship',
@@ -24,11 +20,13 @@ module.exports = class ImageCommand extends Command {
 			args: [
 				{
 					key: 'user1',
+					label: "lover",
 					prompt: 'Which user would you like to ship with?',
 					type: 'user'
 				},
 				{
 					key: 'user2',
+					label: "second lover",
 					prompt: 'Which user would you like to ship the first with?',
 					type: 'user',
 					default: msg => msg.author
@@ -39,15 +37,14 @@ module.exports = class ImageCommand extends Command {
 
 	async run(msg, { user1, user2 }) {
 
-		//Note: Need to save matches between users eventually.
-		var shipNum = Math.floor(Math.random() * 100) + 1;
-
-		var reaction;
+		const ids = [user1.id, user2.id].sort().join(String(Date.now()).substring(0, 5));
+		let shipNum = parseInt(require('crypto').createHash('sha256').update(ids).digest('base64').substring(0, 4), 32) % 101;
+		
 		//Determine what to say
-		if(shipNum >= 85) { reaction = "You two are such a power couple!"; }
-		else if(shipNum < 85 && shipNum >= 65) { reaction = "So cute together!"; }
-		else if(shipNum < 65 && shipNum >= 40) { reaction = "You can make it work!"; }
-		else if(shipNum < 40) { reaction = "Yikes."; }
+		let reaction = "Yikes.";
+		if(shipNum >= 40) reaction = "You can make it work!";
+		if(shipNum >= 65) reaction = "So cute together!";
+		if(shipNum >= 85) reaction = "You two are such a power couple!";
 
 		//If you ship with yourself
 		if(user1 == user2) {
