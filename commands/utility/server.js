@@ -6,7 +6,7 @@ const moment = require('moment');
 const filterLevels = ['Off', 'No Role', 'Everyone'];
 const verificationLevels = ['None', 'Low', 'Medium', '(╯°□°）╯︵ ┻━┻', '┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻'];
 
-module.exports = class ImageCommand extends Command {
+module.exports = class ServerCommand extends Command {
 	constructor(client) {
 		super(client, {
 			name: 'server',

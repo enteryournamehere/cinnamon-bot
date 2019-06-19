@@ -6,7 +6,7 @@ require('moment-duration-format');
 const { formatNumber } = require('../utility/miscUtils');
 
 
-module.exports = class ImageCommand extends Command {
+module.exports = class InfoCommand extends Command {
 	constructor(client) {
 		super(client, {
 			name: 'info',

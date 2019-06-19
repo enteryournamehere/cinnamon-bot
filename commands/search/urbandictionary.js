@@ -5,7 +5,7 @@ const { shorten, formatNumber } = require('../utility/miscUtils');
 
 
 //dragonfire535's Xiao modified to use request-promise and new urbandictionary API system.
-module.exports = class ImageCommand extends Command {
+module.exports = class UrbanDictCommand extends Command {
 	constructor(client) {
 		super(client, {
 			name: 'urbandictionary',
