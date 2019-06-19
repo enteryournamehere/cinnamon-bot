@@ -32,12 +32,12 @@ module.exports = class ImageCommand extends Command {
 		const format = user.avatar && user.avatar.startsWith('a_') ? 'gif' : 'png';
 		if (format === 'gif') formats.push('gif');
 		return msg.say({embed: {
-            title: `Avatar for ${user.tag}`,
-            description: formats.map(fmt => `[${fmt.toUpperCase()}](${user.displayAvatarURL})`).join(' - '),
-            color: 0x00AE86,
-            image: {
-                url: user.displayAvatarURL,
-            },
-        }});
+			title: `Avatar for ${user.tag}`,
+			description: formats.map(fmt => `[${fmt.toUpperCase()}](${user.displayAvatarURL})`).join(' - '),
+			color: 0x00AE86,
+			image: {
+				url: user.displayAvatarURL,
+			},
+		}});
 	}
 };

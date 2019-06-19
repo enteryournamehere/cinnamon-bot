@@ -29,15 +29,15 @@ module.exports = class ImageCommand extends Command {
 				},
 			],
 		});
-    }
+	}
 
 	async run(msg, { word }) {
 		try {
 			const body = await request({
-                uri: ('http://api.urbandictionary.com/v0/define'),
-                qs: {term: word},
-                json: true
-            });
+				uri: ('http://api.urbandictionary.com/v0/define'),
+				qs: {term: word},
+				json: true
+			});
 			if (!body.list.length) return msg.say('Could not find any results.');
 			const data = body.list[0];
 			const embed = new RichEmbed()
