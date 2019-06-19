@@ -6,12 +6,16 @@
   "dependencies": {
     "discord.js": "^11.5.1",
     "discord.js-commando": "^0.10.0",
-    "sqlite": "^3.0.3",
-    "sqlite3": "^4.0.8"
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "sequelize": "^5.8.10"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "git+https://github.com/eslint/eslint.git",
+    "eslint-config-google": "^0.13.0"
+  },
   "scripts": {
-      "start": "node cinnamon.js"
+    "start": "node cinnamon.js"
   },
   "repository": {
     "type": "git",
