@@ -25,8 +25,8 @@ module.exports = class ImageCommand extends Command {
 	}
 
 	async run(msg) {
-        if (!msg.guild.members.has(msg.guild.ownerID)) await msg.guild.members.fetch(msg.guild.ownerID);
-        const embed = new RichEmbed()
+		if (!msg.guild.members.has(msg.guild.ownerID)) await msg.guild.members.fetch(msg.guild.ownerID);
+		const embed = new RichEmbed()
 			.setColor(0x00AE86)
 			.setThumbnail(msg.guild.iconURL)
 			.addField('Name', msg.guild.name, true)
@@ -40,5 +40,5 @@ module.exports = class ImageCommand extends Command {
 			.addField('Roles', msg.guild.roles.size, true)
 			.addField('Channels', msg.guild.channels.filter(channel => channel.type !== 'category').size, true);
 		return msg.embed(embed);
-    }
+	}
 };
