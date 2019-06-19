@@ -4,6 +4,7 @@
   "description": "A Discord commando bot!",
   "main": "cinnamon.js",
   "dependencies": {
+    "canvas": "^2.5.0",
     "discord.js": "^11.5.1",
     "discord.js-commando": "^0.10.0",
     "request": "^2.88.0",

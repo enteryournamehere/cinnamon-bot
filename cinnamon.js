@@ -1,4 +1,5 @@
 const Commando = require('discord.js-commando');
+const Canvas = require('canvas');
 const path = require('path');
 //Version number for playing status
 var versionNum = 'v0.0.1';
