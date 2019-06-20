@@ -52,6 +52,12 @@ module.exports = class ShipCommand extends Command {
 			reaction = "You should always love yourself :)";
 		}
 
+		//If you ship with Cinnamon
+		if(user1 == this.client.user || user2 == this.client.user) {
+			shipNum = 100;
+			reaction = "I'll always love you <3";
+		}
+
 		// Set a new canvas to the dimensions of 700x300 pixels
 		const canvas = Canvas.createCanvas(750, 300);
 		const ctx = canvas.getContext('2d');
