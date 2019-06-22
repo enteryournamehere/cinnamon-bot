@@ -9,6 +9,7 @@ module.exports = class AvatarCommand extends Command {
 			memberName: 'avatar',
 			description: 'Displays avatar of a user',
 			details: 'Displays avatar of a user',
+			aliases: ['pfp','profilepicture'],
 			examples: ['avatar @inco', 'avatar [user]'],
 			format: '[query]',
 			guildOnly: true,
