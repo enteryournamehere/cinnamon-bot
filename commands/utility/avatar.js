@@ -1,5 +1,4 @@
 const {Command} = require('discord.js-commando');
-const request = require('request-promise');
 
 module.exports = class AvatarCommand extends Command {
 	constructor(client) {

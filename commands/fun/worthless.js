@@ -44,7 +44,7 @@ module.exports = class ShipCommand extends Command {
 		//Load avatars
 		const avatar = await Canvas.loadImage(victim.displayAvatarURL);
 
-        //Draw avatars
+		//Draw avatars
         ctx.drawImage(avatar, 200, 75, 300, 300);
 
         
