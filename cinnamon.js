@@ -2,6 +2,7 @@
 const sqlite = require('sqlite');
 const Commando = require('discord.js-commando');
 const path = require('path');
+const { formatNumber } = require('./commands/utility/miscUtils');
 //Version number for playing status
 var versionNum = 'v0.0.1';
 
@@ -11,6 +12,9 @@ const Cinnamon = new Commando.Client({
 	unknownCommandResponse: false,
 	disableEveryone: true,
 });
+
+//Define looping statuses
+const statuses = [Cinnamon.commandPrefix + `help`, `We're gonna be good friends :)`, `:D`, `Try ` + Cinnamon.commandPrefix + `ship`, formatNumber(Cinnamon.guilds.size) + ` servers`, `Hi I love you`]
 
 Cinnamon.setProvider(
 	sqlite.open(path.join(__dirname, 'settings.sqlite3')).then(db => new Commando.SQLiteProvider(db))
@@ -34,9 +38,14 @@ Cinnamon.registry
 Cinnamon.on('ready', () => {
 	console.log('Bot successfully started.');
 	//Set custom status for local testing
-	if(!process.env.BOT_TOKEN) Cinnamon.user.setActivity('Testing!');
-	//Main status
-	else Cinnamon.user.setActivity(Cinnamon.commandPrefix + 'help | ' + versionNum);
+	if(process.env.BOT_TOKEN) Cinnamon.user.setActivity('Testing!');
+	//Change status every 5 minutes.
+	else {
+		setInterval(() => {
+			const status = statuses[Math.floor(Math.random()*statuses.length)]
+			Cinnamon.user.setActivity(status + ' | ' + versionNum);
+		}, 300000);
+	}
 });
 
 //Send hello upon joining server
