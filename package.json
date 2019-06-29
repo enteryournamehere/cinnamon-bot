@@ -10,7 +10,8 @@
     "moment-duration-format": "^2.3.2",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
-    "sequelize": "^5.8.10"
+    "sequelize": "^5.8.10",
+    "sqlite": "^3.0.3"
   },
   "devDependencies": {
     "eslint": "git+https://github.com/eslint/eslint.git",

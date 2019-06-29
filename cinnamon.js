@@ -1,3 +1,5 @@
+//Using sqlite as database
+const sqlite = require('sqlite');
 const Commando = require('discord.js-commando');
 const path = require('path');
 //Version number for playing status
@@ -9,6 +11,10 @@ const Cinnamon = new Commando.Client({
 	unknownCommandResponse: false,
 	disableEveryone: true,
 });
+
+Cinnamon.setProvider(
+	sqlite.open(path.join(__dirname, 'settings.sqlite3')).then(db => new Commando.SQLiteProvider(db))
+).catch(console.error);
 
 // eslint-disable-next-line no-global-assign
 console = new (require('./utils/advancedConsole'))(0, console.log);
