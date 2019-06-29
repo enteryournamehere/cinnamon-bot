@@ -38,7 +38,7 @@ Cinnamon.registry
 Cinnamon.on('ready', () => {
 	console.log('Bot successfully started.');
 	//Set custom status for local testing
-	if(process.env.BOT_TOKEN) Cinnamon.user.setActivity('Testing!');
+	if(!process.env.BOT_TOKEN) Cinnamon.user.setActivity('Testing!');
 	//Change status every 5 minutes.
 	else {
 		setInterval(() => {
