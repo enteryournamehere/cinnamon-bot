@@ -5,12 +5,12 @@ const path = require('path');
 module.exports = class ShipCommand extends Command {
 	constructor(client) {
 		super(client, {
-			name: 'worthless',
+			name: 'beautiful',
 			group: 'fun',
-			memberName: 'worthless',
-			description: 'Tells you a user is worthless.',
-			details: 'Tells you a user is worthless.',
-			examples: ['worthless @user1', 'worthless [url]', 'worthless (with attached image)'],
+			memberName: 'beautiful',
+			description: 'Tells you a user is beautiful.',
+			details: 'Tells you a user is beautiful.',
+			examples: ['beautiful @user1', 'beautiful [url]', 'beautiful (with attached image)'],
 			guildOnly: true,
 			throttling: {
 				usages: 2,
@@ -20,7 +20,7 @@ module.exports = class ShipCommand extends Command {
 				{
 					key: 'victim',
 					label: "victim",
-					prompt: 'Which user would you like to call worthless?',
+					prompt: 'Which user would you like to call beautiful?',
 					type: 'user'
 				},
 			]
@@ -45,14 +45,15 @@ module.exports = class ShipCommand extends Command {
 		const avatar = await Canvas.loadImage(victim.displayAvatarURL);
 
 		//Draw avatars
-		ctx.drawImage(avatar, 200, 75, 300, 300);
+		ctx.drawImage(avatar, 475, 50, 200, 200);
+		ctx.drawImage(avatar, 475, 460, 200, 200);
 
         
 		//Load and draw overlay
-		const heart = await Canvas.loadImage(path.join(__dirname, '..', '..', 'assets', 'images', 'worthless.png'));
+		const heart = await Canvas.loadImage(path.join(__dirname, '..', '..', 'assets', 'images', 'beautiful.png'));
 		ctx.drawImage(heart, 0, 0, canvas.width, canvas.height);
 
 		//Display
-		return msg.say({ files: [{ attachment: canvas.toBuffer(), name: 'worthless.png' }] });
+		return msg.say({ files: [{ attachment: canvas.toBuffer(), name: 'beautiful.png' }] });
 	}
 };
