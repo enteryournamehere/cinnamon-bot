@@ -52,8 +52,13 @@ module.exports = class ShipCommand extends Command {
 		//Load and draw overlay
 		const heart = await Canvas.loadImage(path.join(__dirname, '..', '..', 'assets', 'images', 'beautiful.png'));
 		ctx.drawImage(heart, 0, 0, canvas.width, canvas.height);
+        
+		let reaction = "I think you're beautiful inside and out, " + msg.author + "!";
+		if(victim != msg.author) {
+			reaction = msg.author + " thinks you're beautiful, " + victim + " :)";
+		}
 
 		//Display
-		return msg.say({ files: [{ attachment: canvas.toBuffer(), name: 'beautiful.png' }] });
+		return msg.say(reaction, { files: [{ attachment: canvas.toBuffer(), name: 'beautiful.png' }] });
 	}
 };
