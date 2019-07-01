@@ -16,7 +16,7 @@ module.exports = class InfoCommand extends Command {
 			details: 'Bot information and credits',
 			aliases: ['information','botinfo'],
 			examples: ['info', 'botinfo'],
-			guildOnly: false,
+			guildOnly: true,
 			throttling: {
 				usages: 1,
 				duration: 10
