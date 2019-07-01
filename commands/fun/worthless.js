@@ -52,7 +52,12 @@ module.exports = class ShipCommand extends Command {
 		const heart = await Canvas.loadImage(path.join(__dirname, '..', '..', 'assets', 'images', 'worthless.png'));
 		ctx.drawImage(heart, 0, 0, canvas.width, canvas.height);
 
+		let reaction = "I don't think you're worthless, " + msg.author + "!";
+		if(victim != msg.author) {
+			reaction = msg.author + " thinks you're worthless, " + victim + ", you just gonna take that?";
+		}
+
 		//Display
-		return msg.say({ files: [{ attachment: canvas.toBuffer(), name: 'worthless.png' }] });
+		return msg.say(reaction,{ files: [{ attachment: canvas.toBuffer(), name: 'worthless.png' }] });
 	}
 };
