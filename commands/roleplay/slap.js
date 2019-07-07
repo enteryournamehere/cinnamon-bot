@@ -30,8 +30,8 @@ module.exports = class slapCommand extends Command {
 
 	async run(msg, { victim }) {
 
-		let slapSelection = Math.floor(Math.random()*slapImages.length);
-
+		let slapSelection = Math.floor(Math.random()*slapImages);
+		if (slapSelection == 0) slapSelection +=1;
 		
         
 		let reaction = msg.author + " slaps themselves!";
