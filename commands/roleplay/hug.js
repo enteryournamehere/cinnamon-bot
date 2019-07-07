@@ -1,7 +1,7 @@
 const {Command} = require('discord.js-commando');
 const path = require('path');
 
-const hugImages = ['hug1.gif', 'hug2.gif', 'hug3.gif']
+const hugImages = 12;
 
 module.exports = class hugCommand extends Command {
 	constructor(client) {
@@ -30,7 +30,7 @@ module.exports = class hugCommand extends Command {
 
 	async run(msg, { victim }) {
 
-		const hugSelection = hugImages[Math.floor(Math.random()*hugImages.length)];
+		const hugSelection = Math.floor(Math.random()*hugImages);
 
 		
         
@@ -40,6 +40,6 @@ module.exports = class hugCommand extends Command {
 		}
 
 		//Display
-		return msg.say(reaction, { files: [{ attachment: path.join(__dirname, '..', '..', 'assets', 'images', 'hugs', hugSelection), name: 'hug.gif' }] });
+		return msg.say(reaction, { files: [{ attachment: path.join(__dirname, '..', '..', 'assets', 'images', 'hugs', 'hug' + hugSelection + '.gif'), name: 'hug.gif' }] });
 	}
 };

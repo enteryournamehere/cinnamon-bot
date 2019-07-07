@@ -1,7 +1,7 @@
 const {Command} = require('discord.js-commando');
 const path = require('path');
 
-const slapImages = ['slap1.gif', 'slap2.gif', 'slap3.gif', 'slap4.gif', 'slap5.gif']
+const slapImages = 16;
 
 module.exports = class slapCommand extends Command {
 	constructor(client) {
@@ -30,7 +30,7 @@ module.exports = class slapCommand extends Command {
 
 	async run(msg, { victim }) {
 
-		const slapSelection = slapImages[Math.floor(Math.random()*slapImages.length)];
+		const slapSelection = Math.floor(Math.random()*slapImages.length);
 
 		
         
@@ -40,6 +40,6 @@ module.exports = class slapCommand extends Command {
 		}
 
 		//Display
-		return msg.say(reaction, { files: [{ attachment: path.join(__dirname, '..', '..', 'assets', 'images', 'slaps', slapSelection), name: 'slap.gif' }] });
+		return msg.say(reaction, { files: [{ attachment: path.join(__dirname, '..', '..', 'assets', 'images', 'slaps', 'slap' + slapSelection + '.gif'), name: 'slap.gif' }] });
 	}
 };

@@ -1,7 +1,7 @@
 const {Command} = require('discord.js-commando');
 const path = require('path');
 
-const kissImages = ['kiss1.gif', 'kiss2.gif', 'kiss3.gif', 'kiss4.gif']
+const kissImages = 12;
 
 module.exports = class kissCommand extends Command {
 	constructor(client) {
@@ -30,7 +30,7 @@ module.exports = class kissCommand extends Command {
 
 	async run(msg, { victim }) {
 
-		const kissSelection = kissImages[Math.floor(Math.random()*kissImages.length)];
+		const kissSelection = Math.floor(Math.random()*kissImages.length);
 
 		
         
@@ -40,6 +40,6 @@ module.exports = class kissCommand extends Command {
 		}
 
 		//Display
-		return msg.say(reaction, { files: [{ attachment: path.join(__dirname, '..', '..', 'assets', 'images', 'kisses', kissSelection), name: 'kiss.gif' }] });
+		return msg.say(reaction, { files: [{ attachment: path.join(__dirname, '..', '..', 'assets', 'images', 'kisses', 'kiss' + kissSelection + '.gif'), name: 'kiss.gif' }] });
 	}
 };
