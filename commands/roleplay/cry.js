@@ -22,7 +22,8 @@ module.exports = class cryCommand extends Command {
 
 	async run(msg, { victim }) {
 
-		const crySelection = Math.floor(Math.random()*cryImages);
+        const crySelection = Math.floor(Math.random()*cryImages);
+        if (crySelection == 0) crySelection +=1;
 		let reaction = msg.author + " cries :(";
 
 		//Display

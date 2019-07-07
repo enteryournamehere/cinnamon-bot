@@ -31,6 +31,7 @@ module.exports = class hugCommand extends Command {
 	async run(msg, { victim }) {
 
 		const hugSelection = Math.floor(Math.random()*hugImages);
+		if (hugSelection == 0) hugSelection +=1;
 
 		
         
