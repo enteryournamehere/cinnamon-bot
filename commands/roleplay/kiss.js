@@ -30,7 +30,7 @@ module.exports = class kissCommand extends Command {
 
 	async run(msg, { victim }) {
 
-		const kissSelection = Math.floor(Math.random()*kissImages);
+		let kissSelection = Math.floor(Math.random()*kissImages);
 		if (kissSelection == 0) kissSelection +=1;
 
 		

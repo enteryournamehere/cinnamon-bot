@@ -30,7 +30,7 @@ module.exports = class slapCommand extends Command {
 
 	async run(msg, { victim }) {
 
-		const slapSelection = Math.floor(Math.random()*slapImages.length);
+		let slapSelection = Math.floor(Math.random()*slapImages.length);
 
 		
         
