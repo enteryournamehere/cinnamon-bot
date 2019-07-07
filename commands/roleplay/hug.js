@@ -40,6 +40,6 @@ module.exports = class hugCommand extends Command {
 		}
 
 		//Display
-		return msg.say(reaction, { files: [{ attachment: path.join(__dirname, '..', '..', 'assets', 'images', hugSelection), name: 'hug.gif' }] });
+		return msg.say(reaction, { files: [{ attachment: path.join(__dirname, '..', '..', 'assets', 'images', 'hugs', hugSelection), name: 'hug.gif' }] });
 	}
 };
