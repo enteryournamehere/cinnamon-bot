@@ -27,12 +27,12 @@ module.exports = class SayCommand extends Command {
 	}
 
 	async run(msg, { input }) {
+		input = input.lower;
 		input = input.replace(/r/g, "w");
 		input = input.replace(/s/g,"sh");
 		input = input.replace(/l/g,"w");
 		input = input.replace(/th/g, "d");
 		input = input.replace(/you/g, "u");
-		input.lower;
 		input += " uwu";
 		return msg.say(input);
 	}
