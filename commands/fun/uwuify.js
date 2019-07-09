@@ -11,7 +11,7 @@ module.exports = class SayCommand extends Command {
 			aliases: ['uwu'],
 			examples: ['uwuify [message]', 'uwu [message'],
 			format: '[query]',
-			ownerOnly: true,
+			ownerOnly: false,
 			throttling: {
 				usages: 2,
 				duration: 10
