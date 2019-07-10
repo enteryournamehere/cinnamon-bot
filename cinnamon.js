@@ -14,8 +14,9 @@ const Cinnamon = new Commando.Client({
 });
 
 //Define looping statuses
-const statuses = [Cinnamon.commandPrefix + `help`, `We're gonna be good friends :)`, `:D`, `Try ` + Cinnamon.commandPrefix + `ship`, formatNumber(Cinnamon.guilds.size) + ` servers`, `Hi I love you`]
+const statuses = [Cinnamon.commandPrefix + `help`, `We're gonna be good friends :)`, `:D`, `Try ` + Cinnamon.commandPrefix + `ship`, formatNumber(Cinnamon.guilds.size) + ` servers`, `Hi, I love you`]
 
+require('./database.js').start(0 /*Cinnamon.shard.id*/);
 Cinnamon.setProvider(
 	sqlite.open(path.join(__dirname, 'settings.sqlite3')).then(db => new Commando.SQLiteProvider(db))
 ).catch(console.error);

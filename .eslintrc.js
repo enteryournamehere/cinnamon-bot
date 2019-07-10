@@ -8,6 +8,7 @@ module.exports = {
         "es6": true
     },
     "rules": {
+        "no-console": 'off',
         "object-curly-spacing": 'off',
         "no-const-assign": "warn",
         "linebreak-style": 'off',

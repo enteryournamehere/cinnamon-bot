@@ -1,1 +1,1 @@
-worker: node cinnamon.js
+worker: node index.js
