@@ -1,5 +1,4 @@
 const Sequelize = require('sequelize');
-const secure = require('./secure.json');
 
 class CinnamonDatabase {
 	constructor() {
