@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 
 class CinnamonDatabase {
 	constructor() {
-		this.db = new Sequelize('heroku_30d135e9e96c9c4', process.env.dbUsername, process.env.dbPassword, {
+		this.db = new Sequelize(process.env.dbName, process.env.dbUsername, process.env.dbPassword, {
 			dialect: 'mysql',
 			port: 3306,
 			host: process.env.CLEARDB_DATABASE_HOST,

@@ -3,7 +3,7 @@ const request = require('request-promise');
 const { RichEmbed } = require('discord.js');
 const moment = require('moment');
 require('moment-duration-format');
-const { formatNumber } = require('../utility/miscUtils');
+const { formatNumber } = require('../../utils/miscUtils');
 
 
 module.exports = class InfoCommand extends Command {

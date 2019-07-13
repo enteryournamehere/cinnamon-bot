@@ -2,7 +2,9 @@
 const sqlite = require('sqlite');
 const Commando = require('discord.js-commando');
 const path = require('path');
-const { formatNumber } = require('./commands/utility/miscUtils');
+const { formatNumber } = require('./utils/miscUtils.js');
+// eslint-disable-next-line no-global-assign
+console = new (require('./utils/advancedConsole'))(0, console.log);
 //Version number for playing status
 var versionNum = 'v0.0.1';
 
@@ -21,15 +23,13 @@ Cinnamon.setProvider(
 	sqlite.open(path.join(__dirname, 'settings.sqlite3')).then(db => new Commando.SQLiteProvider(db))
 ).catch(console.error);
 
-// eslint-disable-next-line no-global-assign
-console = new (require('./utils/advancedConsole'))(0, console.log);
-
 Cinnamon.registry
 	.registerGroups([
 		['search', 'Search commands'],
 		['fun', 'Fun commands'],
 		['utility', 'Utility commands'],
-		['roleplay', 'Roleplay commands']
+		['roleplay', 'Roleplay commands'],
+		['owner', 'Owner-only commands']
 	])
 	.registerDefaultTypes()
 	.registerDefaultGroups()

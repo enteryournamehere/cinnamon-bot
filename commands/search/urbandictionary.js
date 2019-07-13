@@ -1,7 +1,7 @@
 const {Command} = require('discord.js-commando');
 const request = require('request-promise');
 const { RichEmbed } = require('discord.js');
-const { shorten, formatNumber } = require('../utility/miscUtils');
+const { shorten, formatNumber } = require('../../utils/miscUtils.js');
 
 
 //dragonfire535's Xiao modified to use request-promise and new urbandictionary API system.

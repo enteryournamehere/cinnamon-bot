@@ -4,7 +4,7 @@ module.exports = class SayCommand extends Command {
 	constructor(client) {
 		super(client, {
 			name: 'say',
-			group: 'utility',
+			group: 'owner',
 			memberName: 'say',
 			description: '(OWNER ONLY) Sends a message to a channel id',
 			details: '(OWNER ONLY) Sends a message to a channel id',
@@ -28,6 +28,10 @@ module.exports = class SayCommand extends Command {
 				},
 			]
 		});
+	}
+
+	hasPermission(msg) {
+		return this.client.isOwner(msg.author);
 	}
 
 	async run(msg, { channelID, channelmsg }) {

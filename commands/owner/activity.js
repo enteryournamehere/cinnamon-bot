@@ -4,7 +4,7 @@ module.exports = class SayCommand extends Command {
 	constructor(client) {
 		super(client, {
 			name: 'activity',
-			group: 'utility',
+			group: 'owner',
 			memberName: 'activity',
 			description: '(OWNER ONLY) Changes the bot activity presence',
 			details: '(OWNER ONLY) Changes the bot activity presence',
@@ -31,8 +31,12 @@ module.exports = class SayCommand extends Command {
 		});
 	}
 
+	hasPermission(msg) {
+		return this.client.isOwner(msg.author);
+	}
+
 	async run(msg, { playing, playType }) {
 		this.client.user.setActivity(playing, {type: playType.toUpperCase()});
-		return msg.say("Set bot as "+playType+" "+playing);
+		return msg.say("Set bot as " + playType + " " + playing);
 	}
 };
