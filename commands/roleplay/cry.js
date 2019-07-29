@@ -22,9 +22,13 @@ module.exports = class cryCommand extends Command {
 
 	async run(msg, { victim }) {
 
-        let crySelection = Math.floor(Math.random()*cryImages);
-        if (crySelection == 0) crySelection +=1;
+		let crySelection = Math.floor(Math.random()*cryImages);
+		if (crySelection == 0) crySelection +=1;
 		let reaction = msg.author + " cries :(";
+
+		if(victim != msg.author) {
+			reaction = msg.author + " cries at " + victim + " :(";
+		}
 
 		//Display
 		return msg.say(reaction, { files: [{ attachment: path.join(__dirname, '..', '..', 'assets', 'images', 'cries', 'cry' + crySelection + '.gif'), name: 'cry.gif' }] });
