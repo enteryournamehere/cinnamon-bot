@@ -38,13 +38,16 @@ module.exports = class ShipCommand extends Command {
 	async run(msg, { user1, user2 }) {
 
 		const ids = [user1.id, user2.id].sort().join(String(Date.now()).substring(0, 5));
-		let shipNum = parseInt(require('crypto').createHash('sha256').update(ids).digest('base64').toLowerCase().substring(0, 4), 32) % 101;
+		let shipNum = parseInt(require('crypto').createHash('sha256').update(ids).digest('base64').toLowerCase().substring(0, 3), 36);
+		if (shipNum > 100) shipNum = shipNum.toString().substring(0,2);
 		//Determine what to say
 		let reaction = "Yikes.";
+		if (shipNum < 0) shipNum = 0;
+		if (shipNum == 0) reaction = "No way.";
 		if(shipNum >= 40) reaction = "You can make it work!";
 		if(shipNum >= 65) reaction = "So cute together!";
 		if(shipNum >= 85) reaction = "You two are such a power couple!";
-		if(shipNum == 100) reaction = "It was meant to be!";
+		if(shipNum >= 95) reaction = "It was meant to be!";
 
 		//If you ship with yourself
 		if(user1 == user2) {
